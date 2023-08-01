@@ -5,8 +5,8 @@
 image: # troopert/workspace-go-operator-sdk:latest
   file: .gitpod.Dockerfile
 
-#tasks:
-#  - init: npm ci
+tasks:
+  - init: kubectl vsphere login --vsphere-username $KUBECTL_VSPHERE_USER --server $KUBECTL_VSPHERE_SERVER
 
 vscode:
   extensions:
