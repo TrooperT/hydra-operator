@@ -1,0 +1,31 @@
+# permissions for end users to edit managedcloudcontrollermanagers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: managedcloudcontrollermanager-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: hydra-operator
+    app.kubernetes.io/part-of: hydra-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: managedcloudcontrollermanager-editor-role
+rules:
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedcloudcontrollermanagers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedcloudcontrollermanagers/status
+  verbs:
+  - get

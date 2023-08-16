@@ -1,0 +1,9 @@
+## Append samples you want in your CSV to this file as resources ##
+resources:
+- iaas_v1alpha1_managedcontrolplane.yaml
+- iaas_v1alpha1_managedetcd.yaml
+- iaas_v1alpha1_managedapiserver.yaml
+- iaas_v1alpha1_managedcontrollermanager.yaml
+- iaas_v1alpha1_managedcloudcontrollermanager.yaml
+- iaas_v1alpha1_managedscheduler.yaml
+#+kubebuilder:scaffold:manifestskustomizesamples

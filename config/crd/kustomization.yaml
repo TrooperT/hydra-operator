@@ -1,0 +1,36 @@
+# This kustomization.yaml is not intended to be run by itself,
+# since it depends on service name and namespace that are out of this kustomize package.
+# It should be run by config/default
+resources:
+- bases/iaas.homelabs.io_managedcontrolplanes.yaml
+- bases/iaas.homelabs.io_managedetcds.yaml
+- bases/iaas.homelabs.io_managedapiservers.yaml
+- bases/iaas.homelabs.io_managedcontrollermanagers.yaml
+- bases/iaas.homelabs.io_managedcloudcontrollermanagers.yaml
+- bases/iaas.homelabs.io_managedschedulers.yaml
+#+kubebuilder:scaffold:crdkustomizeresource
+
+patchesStrategicMerge:
+# [WEBHOOK] To enable webhook, uncomment all the sections with [WEBHOOK] prefix.
+# patches here are for enabling the conversion webhook for each CRD
+#- patches/webhook_in_managedcontrolplanes.yaml
+#- patches/webhook_in_managedetcds.yaml
+#- patches/webhook_in_managedapiservers.yaml
+#- patches/webhook_in_managedcontrollermanagers.yaml
+#- patches/webhook_in_managedcloudcontrollermanagers.yaml
+#- patches/webhook_in_managedschedulers.yaml
+#+kubebuilder:scaffold:crdkustomizewebhookpatch
+
+# [CERTMANAGER] To enable cert-manager, uncomment all the sections with [CERTMANAGER] prefix.
+# patches here are for enabling the CA injection for each CRD
+#- patches/cainjection_in_managedcontrolplanes.yaml
+#- patches/cainjection_in_managedetcds.yaml
+#- patches/cainjection_in_managedapiservers.yaml
+#- patches/cainjection_in_managedcontrollermanagers.yaml
+#- patches/cainjection_in_managedcloudcontrollermanagers.yaml
+#- patches/cainjection_in_managedschedulers.yaml
+#+kubebuilder:scaffold:crdkustomizecainjectionpatch
+
+# the following config is for teaching kustomize how to do kustomization for CRDs.
+configurations:
+- kustomizeconfig.yaml

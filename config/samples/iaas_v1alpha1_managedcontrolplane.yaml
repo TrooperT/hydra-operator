@@ -1,0 +1,15 @@
+apiVersion: iaas.homelabs.io/v1alpha1
+kind: ManagedControlPlane
+metadata:
+  labels:
+    app.kubernetes.io/name: managedcontrolplane
+    app.kubernetes.io/instance: managedcontrolplane-sample
+    app.kubernetes.io/part-of: hydra-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: hydra-operator
+  name: managedcontrolplane-sample
+spec:
+  # TODO(user): Add fields here
+  version: "v1.22.9+vmware.1"
+  enableHA: true
+  tenantID: ""

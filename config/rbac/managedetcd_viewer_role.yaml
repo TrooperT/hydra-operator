@@ -1,0 +1,27 @@
+# permissions for end users to view managedetcds.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: managedetcd-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: hydra-operator
+    app.kubernetes.io/part-of: hydra-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: managedetcd-viewer-role
+rules:
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedetcds
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedetcds/status
+  verbs:
+  - get

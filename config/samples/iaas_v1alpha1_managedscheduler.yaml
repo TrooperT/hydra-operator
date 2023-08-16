@@ -1,0 +1,12 @@
+apiVersion: iaas.homelabs.io/v1alpha1
+kind: ManagedScheduler
+metadata:
+  labels:
+    app.kubernetes.io/name: managedscheduler
+    app.kubernetes.io/instance: managedscheduler-sample
+    app.kubernetes.io/part-of: hydra-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: hydra-operator
+  name: managedscheduler-sample
+spec:
+  # TODO(user): Add fields here

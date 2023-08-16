@@ -1,0 +1,175 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedapiservers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedapiservers/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedapiservers/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedcloudcontrollermanagers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedcloudcontrollermanagers/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedcloudcontrollermanagers/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedcontrollermanagers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedcontrollermanagers/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedcontrollermanagers/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedcontrolplanes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedcontrolplanes/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedcontrolplanes/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedetcds
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedetcds/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedetcds/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedschedulers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedschedulers/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - iaas.homelabs.io
+  resources:
+  - managedschedulers/status
+  verbs:
+  - get
+  - patch
+  - update
