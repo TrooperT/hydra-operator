@@ -168,22 +168,22 @@ func (r *ManagedControlPlaneReconciler) loadBalancerForManagedControlPlane(mcp *
 
 	svc := &corev1.Service{
 		ObjectMeta: metav1.ObjectMeta{
-			Name:      "control-plane-external",
+			Name:      ServiceAPIServerExternal,
 			Namespace: fmt.Sprintf("tenant-%s", mcp.Spec.TenantID),
 		},
 		Spec: corev1.ServiceSpec{
-			Type:            corev1.ServiceTypeLoadBalancer,
+			Type:            ServiceAPIServerExternalType,
 			SessionAffinity: corev1.ServiceAffinityClientIP,
 			Selector: map[string]string{
-				"app":       "managed-control-plane",
-				"component": "api-server",
+				"app":       AppManagedControlPlane,
+				"component": ComponentAPIServer,
 			},
 			Ports: []corev1.ServicePort{
 				{
 					Name:       "apiserver",
 					Protocol:   "TCP",
-					Port:       6443,
-					TargetPort: intstr.FromString("apiserver"),
+					Port:       APIServerPort,
+					TargetPort: intstr.FromInt(APIServerPort),
 				},
 			},
 		},

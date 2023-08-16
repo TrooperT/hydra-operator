@@ -90,13 +90,13 @@ func (r *ManagedEtcdReconciler) peerServiceForManagedEtcdReconciler(metcd *iaasv
 					Name:       "client",
 					Protocol:   "TCP",
 					Port:       2379,
-					TargetPort: intstr.FromInt(2379),
+					TargetPort: intstr.FromInt(EtcdClientPort),
 				},
 				{
 					Name:       "peer",
 					Protocol:   "TCP",
 					Port:       2380,
-					TargetPort: intstr.FromInt(2380),
+					TargetPort: intstr.FromInt(EtcdPeerPort),
 				},
 			},
 		},
@@ -127,8 +127,8 @@ func (r *ManagedEtcdReconciler) clientServiceForManagedEtcdReconciler(metcd *iaa
 				{
 					Name:       "client",
 					Protocol:   "TCP",
-					Port:       2379,
-					TargetPort: intstr.FromInt(2379),
+					Port:       EtcdClientPort,
+					TargetPort: intstr.FromInt(EtcdClientPort),
 				},
 			},
 		},
@@ -150,6 +150,11 @@ func (r *ManagedEtcdReconciler) statefulSetForManagedEtcdReconciler(metcd *iaasv
 		},
 		Spec: appsv1.StatefulSetSpec{
 			ServiceName: ServiceEtcd,
+			Selector: &metav1.LabelSelector{
+				MatchLabels: map[string]string{
+					"app":       AppManagedControlPlane,
+				},
+			},
 		},
 	}
 
